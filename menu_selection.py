@@ -121,45 +121,45 @@ while place_order:
                     i += 1
             # 2. Ask customer to input menu item number
 
-            food_item = input("Type item number: ")
+            menu_selection = input("Type item number: ")
             
             # 3. Check if the customer typed a number
             
-            if food_item.isdigit():
+            if menu_selection.isdigit():
 
                 # Convert the menu selection to an integer
-                food_item = int(food_item)
+                menu_selection = int(menu_selection)
 
                 # 4. Check if the menu selection is in the menu items
-                if food_item in menu_items:
+                if menu_selection in menu_items:
                     # Store the item name as a variable
-                    food_item_name = menu_items[food_item]["Item name"]
+                    menu_selection_name = menu_items[menu_selection]["Item name"]
 
                     # Ask the customer for the quantity of the menu item
-                    food_item_desired_qty  = input("Type desired quantity: ")
+                    menu_selection_desired_qty  = input("Type desired quantity: ")
 
                     # Check if the quantity is a number, default to 1 if not
-                    if food_item_desired_qty.isdigit():
-                        food_item_desired_qty = int(food_item_desired_qty)
+                    if menu_selection_desired_qty.isdigit():
+                        menu_selection_desired_qty = int(menu_selection_desired_qty)
                     else:
-                        food_item_desired_qty = int(1)
+                        menu_selection_desired_qty = int(1)
                         print("Thank was not a number. I will assume you meant to order a quantity of 1.")
 
                     # Add the item name, price, and quantity to the order list
                     order_list[order_slot] = {
-                        "Item name": food_item_name,
-                        "Price" : menu_items[food_item]["Price"],
-                        "Quantity" : food_item_desired_qty
+                        "Item name": menu_selection_name,
+                        "Price" : menu_items[menu_selection]["Price"],
+                        "Quantity" : menu_selection_desired_qty
                     }
                     order_slot += 1
 
                     # Tell the customer that their input isn't valid
                 else:
-                    print(f"{food_item} was not a valid input")
+                    print(f"{menu_selection} was not a valid input")
 
                 # Tell the customer they didn't select a menu option
             else:
-                print(f"{food_item} was not a menu option.")
+                print(f"{menu_selection} was not a menu option.")
 
         else:
             # Tell the customer they didn't select a menu option
